@@ -53,14 +53,33 @@ function SD(data) {
 
 
 
+// get formula from :https://codepen.io/samruda/pen/NNjOaE
+
+var  list = [1,2,2,3,4];
+
+var sum=0;
+var total= list.reduce(function(a,b){
+  return a+b;
+});
+// console.log(total);
+
+var mean=total/list.length;
+
+
+function var_numerator(value){
+  return ((value-mean)*(value-mean));
+}
+var variance=list.map(var_numerator);
+
+variance=variance.reduce(function(a,b){
+  return (a+b);
+});
+
+variance = variance/list.length;
 
 
 
 
-
-function variance() {
-
-    }
 
 
 
@@ -73,3 +92,5 @@ var element = document.getElementById("mode");
 element.innerHTML = mode(DATA);
 var element = document.getElementById("Standard deviation");
 element.innerHTML =SD(DATA);
+var element = document.getElementById("variance");
+element.innerHTML =document.write(variance);
